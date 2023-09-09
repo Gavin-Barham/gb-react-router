@@ -71,6 +71,8 @@ const myElement = <div>Element Content</div>;
 
 // Usage within your component
 <Route path="/path" element={myElement} />
+// Or
+<Route path="/path" element={<div>Element Content</div>} />
 ```
 
 The `Route` component ensures that only one of the rendering options (`children`, `component`, or `element`) is provided. If multiple options are specified, it will throw an error to prevent ambiguity.

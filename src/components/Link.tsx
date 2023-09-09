@@ -19,3 +19,4 @@ const Link: React.FC<LinkProps> = ({ children, to }) => {
 };
 
 export default Link;
+export type { LinkProps };

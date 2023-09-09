@@ -8,10 +8,7 @@ interface RouterProps {
 const Router: React.FC<RouterProps> = ({ children }) => {
   const { setCurrentURL } = useRouterContext();
   useEffect(() => {
-    function handlePopstate(e: PopStateEvent) {
-      // e.preventDefault(); // This line is commented out because preventDefault is not available on PopStateEvent
-      console.log(e);
-
+    function handlePopstate() {
       setCurrentURL(new URL(window.location.href));
     }
     window.addEventListener("popstate", handlePopstate);
@@ -23,3 +20,4 @@ const Router: React.FC<RouterProps> = ({ children }) => {
 };
 
 export default Router;
+export type { RouterProps };

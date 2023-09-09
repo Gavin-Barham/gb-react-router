@@ -18,31 +18,74 @@ import Link from "./Link";
 ```
 
 
+Here's the updated documentation for the `Route` functional component in Markdown format:
+
 ### Route
 
-The `Route` component renders its children or a specified functional component based on the current URL path. It throws an error if neither children nor a component is provided. Strict TypeScript typings are added.
+The `Route` component renders its children, a specified functional component, or an element based on the current URL path. It throws an error if multiple rendering options are provided simultaneously.
 
-#### Usage with Children
+#### Props
+
+- `path` (required): A string representing the URL path to match for rendering.
+- `children` (optional): Content to render when the `path` matches the current URL.
+- `component` (optional): A function that returns content to render when the `path` matches the current URL.
+- `element` (optional): An element to render when the `path` matches the current URL.
+
+#### Usage
+
+The `Route` component allows you to define different rendering options based on the URL path.
+
+- Usage with `children`:
 
 ```jsx
 import Route from "./Route";
 
 // Usage within your component
 <Route path="/path">
-  <!-- Content to render when the path matches -->
+  {/* Content to render when the path matches */}
 </Route>
 ```
 
-#### Usage with Component
+- Usage with `component`:
 
 ```jsx
 import Route from "./Route";
+
+// Define a functional component to render
+const MyComponent = () => {
+  // Your component logic here
+  return <div>Component Content</div>;
+};
 
 // Usage within your component
 <Route path="/path" component={MyComponent} />
 ```
 
-When using the `component` prop, the `Route` component will render the specified functional component (`MyComponent` in the example) if the `path` matches the current URL. This provides flexibility in how you structure and reuse your route components.
+- Usage with `element`:
+
+```jsx
+import Route from "./Route";
+
+// Define an element to render
+const myElement = <div>Element Content</div>;
+
+// Usage within your component
+<Route path="/path" element={myElement} />
+```
+
+The `Route` component ensures that only one of the rendering options (`children`, `component`, or `element`) is provided. If multiple options are specified, it will throw an error to prevent ambiguity.
+
+Exported Types:
+
+- `RouteProps`: The type definition for the `Route` component's props, including `path`, `children`, `component`, and `element`.
+
+You can import the `Route` component and its associated type like this:
+
+```jsx
+import Route, { RouteProps } from "./Route";
+```
+
+This allows you to use the `Route` component and `RouteProps` type in other parts of your application while maintaining clarity and type safety.
 
 ### BrowserRouter
 

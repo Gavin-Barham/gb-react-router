@@ -1,6 +1,6 @@
 {
   "name": "gb-react-router",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A type safe React routing library for SPA built with Typescript and React",
   "type": "module",
   "main": "./src/components/Library.tsx",
